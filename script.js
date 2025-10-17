@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const calendarElement = document.getElementById('calendar');
+    const tasksElement = document.getElementById('tasks');
     const date = new Date();
     const month = date.getMonth();
     const year = date.getFullYear();
@@ -19,7 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const dayDiv = document.createElement('div');
             dayDiv.className = 'day';
             dayDiv.textContent = day;
+            dayDiv.addEventListener('click', function() {
+                const task = prompt('Enter a task for ' + day + '/' + (month + 1) + '/' + year);
+                if (task) {
+                    addTask(day, task);
+                }
+            });
             calendarElement.appendChild(dayDiv);
         }
+    }
+
+    function addTask(day, task) {
+        const taskItem = document.createElement('li');
+        taskItem.textContent = day + '/' + (new Date().getMonth() + 1) + '/' + new Date().getFullYear() + ': ' + task;
+        tasksElement.appendChild(taskItem);
     }
 });
