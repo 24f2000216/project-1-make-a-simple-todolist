@@ -34,8 +34,18 @@ h1 {
     padding: 10px;
     text-align: center;
     transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .day:hover {
     background-color: #ffc107;
+}
+
+#taskList {
+    margin-top: 20px;
+}
+
+#tasks {
+    list-style-type: none;
+    padding: 0;
 }
